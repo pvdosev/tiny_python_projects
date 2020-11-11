@@ -3,21 +3,33 @@
 
 import argparse
 
+
 def get_arguments():
-	parser = argparse.ArgumentParser(
-		description = "Let's rock the boat",
-		formatter_class = argparse.ArgumentDefaultsHelpFormatter
-		)
+    """Fetch CLI arguments"""
+    parser = argparse.ArgumentParser(
+        description="Let's rock the boat",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
 
-	parser.add_argument('positional',
-		metavar="spotted",
-		help="Yarr, what ye be seeing?")
+    parser.add_argument(
+        "word", metavar="spotted", help="Yarr, what ye be seeing?"
+    )
 
-	return parser.parse_args()
+    return parser.parse_args()
+
 
 def main():
-	args = get_arguments()
-	print("Ahoy, Captain, a " + args.positional + " off the larboard bow!")
+    """Do the thing, Ju Li!"""
 
-if __name__ == '__main__':
-	main()
+    args = get_arguments()
+
+    if args.word[0].lower() in "aeiou":
+        article = "an"
+    else:
+        article = "a"
+
+    print("Ahoy, Captain, {} {} off the larboard bow!".format(article, args.word))
+
+
+if __name__ == "__main__":
+    main()
