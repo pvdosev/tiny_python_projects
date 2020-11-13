@@ -36,7 +36,7 @@ def main():
     }
 
     for char in args.string:
-        scrambled = scrambled + number_dict.get(char, char)
+        scrambled += number_dict.get(char, char)
 
     print(scrambled)
 
